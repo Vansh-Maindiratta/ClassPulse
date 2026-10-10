@@ -28,7 +28,7 @@ export function AdminDashboard() {
   const curriculum = useApi(() => api.get<Curriculum[]>("/curriculum"), []);
   const activities = useApi(() => api.get<Activity[]>("/activities"), []);
 
-  const students = users.data?.filter((user) => user.role === "student") ?? [];
+  const students = users.data?.filter((user) => user.role === "faculty") ?? [];
   const faculty = users.data?.filter((user) => user.role === "faculty") ?? [];
 
   const attendanceChart = attendance.data?.bySubject.map((item) => ({

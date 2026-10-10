@@ -19,7 +19,7 @@ async function request<T>(path: string, options?: RequestInit): Promise<T> {
 
     const data = await response.json().catch(() => ({}));
     if (!response.ok) {
-      throw new Error(data.message || "Unable to load academic data. Please try again later.");
+      throw new Error(data.error || "Unable to load academic data. Please try again later.");
     }
     return data as T;
   } catch (error) {

@@ -35,7 +35,7 @@ export function Subjects() {
             <SubjectCard
               key={subject._id}
               subject={subject}
-              meta={cls ? `${cls.section} · ${cls.room} · ${cls.schedule.time}` : undefined}
+              meta={cls ? `${cls.section} · ${cls.room} · ${cls.room}` : undefined}
             />
           );
         })}

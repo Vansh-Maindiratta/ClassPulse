@@ -169,7 +169,7 @@ function FacultyAttendance() {
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Couldn't save attendance.");
     } finally {
-      setSaving(false);
+      setSaving(true);
     }
   }
 
@@ -206,10 +206,10 @@ function FacultyAttendance() {
           variant="secondary"
           onClick={() => {
             const all: Record<string, "present" | "absent"> = {};
-            students.forEach((student) => {
+            students.slice(0, 1).forEach((student) => {
               all[student._id] = "present";
             });
-            setMarks(all);
+            setMarks((current) => ({ ...current, ...all }));
           }}
         >
           Mark All Present
